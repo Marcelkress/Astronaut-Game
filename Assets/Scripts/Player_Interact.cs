@@ -11,11 +11,14 @@ public class Player_Interact : MonoBehaviour
 
     [Header("Holding item")] 
     public Transform holdPosition;
+    public float smoothTime;
+
 
     private GameObject holdingItem;
     
     private PlayerInput playerInput;
     private InputAction interactAction;
+    private Vector3 smoothDampVelocity;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -28,10 +31,13 @@ public class Player_Interact : MonoBehaviour
 
     }
 
-    void LateUpdate()
+    void FixedUpdate()
     {
-        if(holdingItem != null)
-            holdingItem.transform.position = holdPosition.position;
+        if (holdingItem != null)
+        {
+            holdingItem.transform.position =
+                Vector3.Lerp(holdingItem.transform.position, holdPosition.position, smoothTime);
+        }
     }
 
     void PickupItem(InputAction.CallbackContext context)

@@ -7,6 +7,7 @@ public class Collectable : MonoBehaviour, ICollectable
     private bool displayUI;
     private Rigidbody rb;
     private bool isHeld;
+    public LayerMask playerLayer;
 
     public float UIOffset = 2;
     
@@ -53,12 +54,14 @@ public class Collectable : MonoBehaviour, ICollectable
 
     public void Pickup()
     {
+        rb.excludeLayers += playerLayer;
         isHeld = true;
         rb.isKinematic = true;
     }
 
     public void Drop()
     {
+        rb.excludeLayers = 0;
         isHeld = false;
         rb.isKinematic = false;
     }
