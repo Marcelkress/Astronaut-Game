@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -316,12 +317,23 @@ public class Player_Controller : MonoBehaviour
 
     private bool IsGrounded()
     {
-        if(Physics.Raycast(transform.position, Vector3.down, castDistance, groundLayer))
+        Vector3 castOrigin = new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z);
+        
+        if(Physics.Raycast(castOrigin, Vector3.down, castDistance + 0.2f, groundLayer))
             return true;
         else
             return false;
     }
-    
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        if (IsGrounded())
+            Gizmos.color = Color.green;
+        
+        Gizmos.DrawLine(new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z), new Vector3(transform.position.x, transform.position.y - castDistance, transform.position.z));
+    }
+
     private IEnumerator LockMoveLand()
     {
         canMove = false;
