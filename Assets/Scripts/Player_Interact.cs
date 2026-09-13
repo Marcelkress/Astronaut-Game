@@ -11,8 +11,7 @@ public class Player_Interact : MonoBehaviour
 
     [Header("Holding item")] 
     public Transform holdPosition;
-    public float smoothTime;
-
+    public float lerpTime;
 
     private GameObject holdingItem;
     
@@ -36,7 +35,7 @@ public class Player_Interact : MonoBehaviour
         if (holdingItem != null)
         {
             holdingItem.transform.position =
-                Vector3.Lerp(holdingItem.transform.position, holdPosition.position, smoothTime);
+                Vector3.Lerp(holdingItem.transform.position, holdPosition.position, lerpTime);
         }
     }
 
@@ -45,7 +44,8 @@ public class Player_Interact : MonoBehaviour
         if (debug)
             Debug.Log("PICKUP");
 
-        var hits = Physics.SphereCastAll(transform.position, spherecastRadius, Vector3.up, spherecastRadius, interactableLayer);
+        var hits = Physics.SphereCastAll
+            (transform.position, spherecastRadius, Vector3.up, spherecastRadius, interactableLayer);
 
         if (hits.Length != 0)
         {
