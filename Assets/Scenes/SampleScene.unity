@@ -1010,8 +1010,68 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2307578602095403697, guid: ce685a2af18074bc2ada1588c5889719, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2307578602095403697, guid: ce685a2af18074bc2ada1588c5889719, type: 3}
+      propertyPath: m_PropertySheet.m_Vector2f.m_Array.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2307578602095403697, guid: ce685a2af18074bc2ada1588c5889719, type: 3}
       propertyPath: m_PropertySheet.m_Int.m_Array.Array.data[0].m_Value
-      value: 50
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 2307578602095403697, guid: ce685a2af18074bc2ada1588c5889719, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[0].m_Name
+      value: Spawn Rate
+      objectReference: {fileID: 0}
+    - target: {fileID: 2307578602095403697, guid: ce685a2af18074bc2ada1588c5889719, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[1].m_Name
+      value: Size multiplier
+      objectReference: {fileID: 0}
+    - target: {fileID: 2307578602095403697, guid: ce685a2af18074bc2ada1588c5889719, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[2].m_Name
+      value: Spawn Circle radius
+      objectReference: {fileID: 0}
+    - target: {fileID: 2307578602095403697, guid: ce685a2af18074bc2ada1588c5889719, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[0].m_Value
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 2307578602095403697, guid: ce685a2af18074bc2ada1588c5889719, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[1].m_Value
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2307578602095403697, guid: ce685a2af18074bc2ada1588c5889719, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[2].m_Value
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2307578602095403697, guid: ce685a2af18074bc2ada1588c5889719, type: 3}
+      propertyPath: m_PropertySheet.m_Vector2f.m_Array.Array.data[0].m_Name
+      value: Min Max Lifetime
+      objectReference: {fileID: 0}
+    - target: {fileID: 2307578602095403697, guid: ce685a2af18074bc2ada1588c5889719, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[0].m_Overridden
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2307578602095403697, guid: ce685a2af18074bc2ada1588c5889719, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[1].m_Overridden
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2307578602095403697, guid: ce685a2af18074bc2ada1588c5889719, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[2].m_Overridden
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2307578602095403697, guid: ce685a2af18074bc2ada1588c5889719, type: 3}
+      propertyPath: m_PropertySheet.m_Vector2f.m_Array.Array.data[0].m_Value.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2307578602095403697, guid: ce685a2af18074bc2ada1588c5889719, type: 3}
+      propertyPath: m_PropertySheet.m_Vector2f.m_Array.Array.data[0].m_Value.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2307578602095403697, guid: ce685a2af18074bc2ada1588c5889719, type: 3}
+      propertyPath: m_PropertySheet.m_Vector2f.m_Array.Array.data[0].m_Overridden
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5989869003681254575, guid: ce685a2af18074bc2ada1588c5889719, type: 3}
       propertyPath: m_Name
@@ -1021,6 +1081,10 @@ PrefabInstance:
       propertyPath: pairedPortalTeleportPoint
       value: 
       objectReference: {fileID: 134803951}
+    - target: {fileID: 7537316009944818691, guid: ce685a2af18074bc2ada1588c5889719, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7989905223797130265, guid: ce685a2af18074bc2ada1588c5889719, type: 3}
       propertyPath: m_Name
       value: Teleport Point B
@@ -1968,11 +2032,26 @@ VisualEffect:
   m_PropertySheet:
     m_Float:
       m_Array:
-      - m_Value: 5
+      - m_Value: 3.5
         m_Name: Size multiplier
         m_Overridden: 1
+      - m_Value: 3
+        m_Name: Up Speed
+        m_Overridden: 1
+      - m_Value: 1
+        m_Name: Animation Speed
+        m_Overridden: 1
+      - m_Value: 20
+        m_Name: Rate
+        m_Overridden: 1
     m_Vector2f:
-      m_Array: []
+      m_Array:
+      - m_Value: {x: 1, y: 3}
+        m_Name: Min Max Size
+        m_Overridden: 1
+      - m_Value: {x: 0.5, y: 4}
+        m_Name: Min Max Lifetime
+        m_Overridden: 1
     m_Vector3f:
       m_Array: []
     m_Vector4f:
@@ -2532,10 +2611,10 @@ VisualEffect:
   m_PropertySheet:
     m_Float:
       m_Array:
-      - m_Value: 2
+      - m_Value: 3.44
         m_Name: Size multiplier
         m_Overridden: 1
-      - m_Value: 0.2
+      - m_Value: 1
         m_Name: Up force
         m_Overridden: 1
       - m_Value: 0.1
@@ -2576,7 +2655,7 @@ Transform:
   m_GameObject: {fileID: 735037269}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.267, y: 2.25348, z: 19.063}
+  m_LocalPosition: {x: 14.751, y: 1.807, z: 19.037}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2673,7 +2752,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &820545609
 Transform:
   m_ObjectHideFlags: 0
@@ -2683,7 +2762,7 @@ Transform:
   m_GameObject: {fileID: 820545608}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.192, y: -0.1779, z: 0.0292}
+  m_LocalPosition: {x: -0.033, y: -0.239, z: 0.056}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2730,7 +2809,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 0.62671614, b: 0, a: 1}
   m_Intensity: 15
-  m_Range: 10
+  m_Range: 4.03
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize2D: {x: 0.5, y: 0.5}
@@ -4051,6 +4130,76 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4345878849055200, guid: fa6105287f77b1240a0017f7d23434c2, type: 3}
   m_PrefabInstance: {fileID: 1311743641}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1314967667
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1314967670}
+  - component: {fileID: 1314967669}
+  - component: {fileID: 1314967668}
+  m_Layer: 0
+  m_Name: Spaceship parts manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!135 &1314967668
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314967667}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 6.35
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1314967669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314967667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d204a7f1c3842483699ce96022f8fa80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpaceshipPartsManager
+  partsRequired: 3
+  partsTag: SpaceshipPart
+  debug: 1
+  partsCollected: []
+--- !u!4 &1314967670
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314967667}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 14.57, y: -0.22, z: 21.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1316578927
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4222,6 +4371,9 @@ VisualEffect:
         m_Overridden: 1
       - m_Value: 1
         m_Name: Lifetime
+        m_Overridden: 1
+      - m_Value: 0.1
+        m_Name: Max speed
         m_Overridden: 1
     m_Vector2f:
       m_Array: []
@@ -4577,8 +4729,8 @@ GameObject:
   - component: {fileID: 1405519604}
   - component: {fileID: 1405519603}
   m_Layer: 7
-  m_Name: Collectable (1)
-  m_TagString: Untagged
+  m_Name: Spaceship part
+  m_TagString: SpaceshipPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5549,8 +5701,8 @@ GameObject:
   - component: {fileID: 1845806338}
   - component: {fileID: 1845806339}
   m_Layer: 7
-  m_Name: Collectable
-  m_TagString: Untagged
+  m_Name: Spaceship part
+  m_TagString: SpaceshipPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6364,8 +6516,8 @@ GameObject:
   - component: {fileID: 2084738424}
   - component: {fileID: 2084738423}
   m_Layer: 7
-  m_Name: Collectable (2)
-  m_TagString: Untagged
+  m_Name: Spaceship part
+  m_TagString: SpaceshipPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6596,7 +6748,7 @@ VisualEffect:
       - m_Value: 8
         m_Name: Size multiplier
         m_Overridden: 1
-      - m_Value: 2
+      - m_Value: 3
         m_Name: Up force
         m_Overridden: 1
       - m_Value: 0.1
@@ -7744,7 +7896,7 @@ Transform:
   m_GameObject: {fileID: 4187339319574795240}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.14943433, z: -0, w: 0.9887717}
-  m_LocalPosition: {x: 11.76, y: 10.03, z: 25.92}
+  m_LocalPosition: {x: 9.51, y: 10.03, z: 23.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7808,9 +7960,13 @@ PrefabInstance:
       propertyPath: pairedPortalTeleportPoint
       value: 
       objectReference: {fileID: 233193663}
+    - target: {fileID: 7537316009944818691, guid: ce685a2af18074bc2ada1588c5889719, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8299421744649846960, guid: ce685a2af18074bc2ada1588c5889719, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.1
+      value: -27.62
       objectReference: {fileID: 0}
     - target: {fileID: 8299421744649846960, guid: ce685a2af18074bc2ada1588c5889719, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7818,7 +7974,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8299421744649846960, guid: ce685a2af18074bc2ada1588c5889719, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5
+      value: 10.06
       objectReference: {fileID: 0}
     - target: {fileID: 8299421744649846960, guid: ce685a2af18074bc2ada1588c5889719, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7991,10 +8147,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player_Controller
   moveDelay: 0.5
   canMove: 0
-  weaponDamage: 0
-  PlayerAttack:
-    m_PersistentCalls:
-      m_Calls: []
   walkSpeed: 4
   sprintSpeed: 4
   lockMoveAfterLandTime: 0.5
@@ -8068,6 +8220,7 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 5787891545694636887}
+  - {fileID: 1314967670}
   - {fileID: 1869837171}
   - {fileID: 4688571673617781952}
   - {fileID: 1079089999}

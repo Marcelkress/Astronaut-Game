@@ -14,6 +14,7 @@ public class Player_Interact : MonoBehaviour
     public float lerpTime;
 
     private GameObject holdingItem;
+    private ShipPart heldShipPart;
     
     private PlayerInput playerInput;
     private InputAction interactAction;
@@ -32,7 +33,7 @@ public class Player_Interact : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (holdingItem != null)
+        if (holdingItem != null && heldShipPart.canPickup)
         {
             holdingItem.transform.position =
                 Vector3.Lerp(holdingItem.transform.position, holdPosition.position, lerpTime);
@@ -49,11 +50,27 @@ public class Player_Interact : MonoBehaviour
 
         if (hits.Length != 0)
         {
-            if (hits[0].transform.TryGetComponent<ICollectable>(out ICollectable collectable))
+            foreach (var hit in hits)
             {
-                collectable.Pickup();   
-                
-                holdingItem = hits[0].transform.gameObject;
+                if (holdingItem == null)
+                { 
+                    holdingItem = hit.transform.gameObject;   
+                }
+                    
+                // Pickup the closest item of all items within the pickup radius
+                float distanceToCurrent = Vector3.Distance(holdingItem.transform.position, transform.position);
+                float distanceToNext = Vector3.Distance(hit.transform.position, transform.position);
+                if (distanceToNext < distanceToCurrent)
+                { 
+                    holdingItem = hit.transform.gameObject;
+                }
+            }
+            
+            // Tell the object we are picking it up
+            if (holdingItem.transform.TryGetComponent(out ShipPart shipPart))
+            {
+                shipPart.Pickup();
+                heldShipPart = shipPart;
             }
         }
     }
@@ -66,13 +83,9 @@ public class Player_Interact : MonoBehaviour
         if (holdingItem == null)
             return;
         
-         holdingItem.GetComponent<ICollectable>().Drop();
+         holdingItem.GetComponent<ShipPart>().Drop();
          holdingItem = null;
     }
 }
 
-public interface ICollectable
-{
-    public void Pickup();
-    public void Drop();
-}
+

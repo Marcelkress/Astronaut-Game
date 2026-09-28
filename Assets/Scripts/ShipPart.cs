@@ -1,7 +1,8 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
-public class Collectable : MonoBehaviour, ICollectable
+public class ShipPart : MonoBehaviour
 {
     private Canvas UICanvas;
     private bool displayUI;
@@ -10,16 +11,22 @@ public class Collectable : MonoBehaviour, ICollectable
     public LayerMask playerLayer;
 
     public float UIOffset = 2;
+
+    public bool canPickup { get; private set; }
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        canPickup = true;
         rb = GetComponent<Rigidbody>();
         UICanvas = GetComponentInChildren<Canvas>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!canPickup)
+            return;
+        
         if (other.CompareTag("Player"))
         {
             displayUI = true;
@@ -54,6 +61,9 @@ public class Collectable : MonoBehaviour, ICollectable
 
     public void Pickup()
     {
+        if (!canPickup)
+            return;
+            
         rb.excludeLayers += playerLayer;
         isHeld = true;
         rb.isKinematic = true;
@@ -64,5 +74,18 @@ public class Collectable : MonoBehaviour, ICollectable
         rb.excludeLayers = 0;
         isHeld = false;
         rb.isKinematic = false;
+    }
+
+    public void LockPickup()
+    {
+        StartCoroutine(WaitForDrop());
+    }
+
+    private IEnumerator WaitForDrop()
+    {
+        yield return new WaitUntil(() => !isHeld);
+        canPickup = false;
+        
+        //Debug.Log("Locked pickup");
     }
 }

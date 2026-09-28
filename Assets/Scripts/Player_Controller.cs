@@ -30,8 +30,6 @@ public class Player_Controller : MonoBehaviour
     [SerializeField] private float moveDelay;
     public bool canMove;
     private bool isAttacking;
-    public int weaponDamage;
-    public UnityEvent PlayerAttack;
 
     [Header("Move")]
     [SerializeField] private float walkSpeed;
@@ -120,7 +118,6 @@ public class Player_Controller : MonoBehaviour
             return;
         
         StartCoroutine(ChangeFloatOverTime(.5f, 1, transTimeToSprint));
-        
     }
 
     private void SprintCanceled(InputAction.CallbackContext context)
@@ -144,12 +141,12 @@ public class Player_Controller : MonoBehaviour
         if (currentIsGrounded && !lastIsGrounded)
         {
             isLanded = true; 
-            StartCoroutine(LockMoveLand());
+            StartCoroutine(LockMoveOnLand());
         }
 
         lastIsGrounded = currentIsGrounded;
 
-        // Reset flag when airborne again
+        // Reset when airborne again
         if (!currentIsGrounded)
         {
             isLanded = false;
@@ -228,7 +225,7 @@ public class Player_Controller : MonoBehaviour
         if(canMove == false)
             return;
 
-        // Transform the movement vector to be relative to the camera's orientation
+        // create movement vectors that are relative to the camera's orientation
         Vector3 forward = cameraBoom.transform.forward;
         Vector3 right = cameraBoom.transform.right;
 
@@ -238,7 +235,7 @@ public class Player_Controller : MonoBehaviour
         forward.Normalize();
         right.Normalize();
 
-        // Calculate the desired movement direction
+        // Calculate movement direction
         Vector3 desiredMoveDirection = forward * moveVector.y + right * moveVector.x;
 
         // Apply the movement
@@ -257,15 +254,15 @@ public class Player_Controller : MonoBehaviour
         // Apply vertical rotation to the camera
         yRotation -= mouseY;
         yRotation = Mathf.Clamp(yRotation, yMin, yMax);
+        
         cameraBoom.transform.localRotation = Quaternion.Euler(yRotation, xRotation, 0f);
     }
     
 
     private void Jump(InputAction.CallbackContext context)
     {
-        if(IsGrounded() == true && canJump == true)
+        if(IsGrounded() && canJump)
         {
-            //anim.SetTrigger("Jump");
             Vector3 jumpVector = new(rb.linearVelocity.x, jumpForce, rb.linearVelocity.z);
             rb.AddForce(jumpVector, ForceMode.Impulse);
             timePassed = 0f;
@@ -334,7 +331,7 @@ public class Player_Controller : MonoBehaviour
         Gizmos.DrawLine(new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z), new Vector3(transform.position.x, transform.position.y - castDistance, transform.position.z));
     }
 
-    private IEnumerator LockMoveLand()
+    private IEnumerator LockMoveOnLand()
     {
         canMove = false;
         yield return new WaitForSeconds(lockMoveAfterLandTime);
